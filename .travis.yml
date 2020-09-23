@@ -14,7 +14,7 @@ script:
   - export ALPHA_KEY=$ALPHA_KEY
   - python .travis/make.py
   # - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then python .travis/prtests.py; fi'
-  deploy:
+deploy:
     provider: pages:git
     token: $GITHUB_TOKEN
     edge: true # opt in to dpl v2
