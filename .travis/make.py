@@ -98,9 +98,9 @@ def predict(name, scaler, abbr, model, training_complete):
     
     predname = str("csvs/" + abbr + "_prediction.csv")
     np.savetxt(predname, predictions, delimiter=",")
-    print(predictions.shape)
-    print(test_inputs.shape)
-    print(predictions[-10::])
+    # print(predictions.shape)
+    # print(test_inputs.shape)
+    # print(predictions[-10::])
     
     # Plot the results -model trained with 100 epochs 
     plt.figure(figsize=(10,6))
