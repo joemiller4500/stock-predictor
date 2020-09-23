@@ -116,6 +116,7 @@ def predict(name, scaler, abbr, model, training_complete):
 def runModel(abbr):
     data, name, abbr = getData(abbr)
     training_complete, training_processed, scaler, training_scaled = loadScale(name)
+    name = name.upper
     model, name = loadModel(training_scaled, abbr)
     predict(name, scaler, abbr, model, training_complete)
 
