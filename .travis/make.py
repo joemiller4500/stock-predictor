@@ -12,7 +12,7 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
-ALPHA_KEY = server.connect(os.environ['ALPHA_KEY'])
+ALPHA_KEY = os.environ['ALPHA_KEY']
 ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 
 skipTrain = True
