@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 import time, os.path, datetime
 from flask import Flask, render_template
 from alpha_vantage.timeseries import TimeSeries
-ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
-
+global ALPHA_KEY
+ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 
 skipTrain = True
 pullCount = 0
