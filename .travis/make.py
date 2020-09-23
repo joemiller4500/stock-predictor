@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time, os.path, datetime
+import os
 from flask import Flask, render_template
 from alpha_vantage.timeseries import TimeSeries
 from tensorflow.keras.models import Sequential
@@ -11,7 +12,6 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
-global ALPHA_KEY
 ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 
 skipTrain = True
