@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.6"
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - python make.py
+  # - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then python .travis/prtests.py; fi'
+after_script:
+  - bash push.sh
+env:
+    global:
+        - secure: "GPzvlio6L76HvuAmV1+qe7IubOGklATKlculio+o8jYwlIb1llBw6zJTEexsy++Z0mGxBk8KO1mmN50b7h8uZyPn3inOD6ubCPvaLAJGFarC0u2/iHt0E9E5OpVShYGMIyIHif61sdtWZA0LRMiUjWuhqpSGvX78J0cu4sXomZs0Oj9PgdWEsre0lw8NggQbHIr0pzrkolEKd9En+Bo1EYjRgzhjRF1fhBV4wY/cSUaZjX2jzFpih2gQyWRdO2UHXGPuSdeDaVpTjR50LuUycsW1JzAp3p6AZnIo6A80erobz0hgBNv1ssn8Acf8zPvJa3IwfwpFvD3/k0sL6fuoYuZ5+Zt9HNUHNqoBkj65OvjNRqcnB1uAF38VcN2VUUXIAK75X59m/7TTP6Y2Iibw8tY+M5vfV18VgzUKIBbWK5xOhlCUoQkBIUhNUsoL3cAVmJmlQtnnaOyBA0xlXIpdW49vNb150Xk6KMtwa7Ey8CYgyObVnqjLNecNjbUKc260XjD8BwTA0sbuCsgOfxLZVEy4yNTBOR0OIc09W+ku3xS4Vl/b3h3rWEy2BYeLQKZ5l3pHJIOYK7vLpBoOiekeFN+aet2NeMMZgOYpq6fjMTQ6pVKffYOsgYdhAl9DHjLCZvd1ixN0/qYUoZB3GIlo5OWfQfEauu33NtikwKj2mH4="
+        - secure: "m5ob0m45RPc9CtqEwbxiys7VwFAOc7LFpY+uaxtSLIQpvTYoNp8e+1Q6XBqivpSDHjZmvUGUXTv4lT6kjsYejiDMl/V24OwR75gFpF8fKUyTdo+UwqWnHurzeI4u8gvY6pNr+X5zWJpuNfL7yRjxVXEeoE+iSklZIBU53AI8/SA06YDvyaFZRdPGQSL122LLIGkm758OIzSfnWqIt6aLlNoFTwti0WprxDmeVzTzdJRts87oaLNnQ9p/hxpNnfU/0aE9ldoqB4avXSajzHs86++L/jmVwF7dmKfSiuTx0duXLb3kJh0Uahzr56Jjss270ekl0BI5lrPC8Mo58xp1wViac8i227gGR1HVIya43Jp3gqhOeRHpMxCoTXO1NjD6UULHQGQCIbY1EUQQ80cl/Q3iEaIlgqHLs6MhEPQTI48yQP7mjjWRdzsC4yAVskrfmkh1NzM4TC+rjivs0N/se2NsEJCWL9OYggCeFgeJ7JMrBHRQc8x6iptFN105mjZDhRmcusqaN14j0ybnIjU/ctjq6p8Nwn76nlEhK8JgO+vEc5j15+TVOWmnp0AuX9AEE1Ahk2jB5s9sdYkvCPYrJ1fLXjrRInuzc7qZjaoMHt68kPFeuG2+Tma3fXEakWoZS5aCqEnYjs12pKahwu37tvx26qbBVaIZm/rlZJRfsfc="
