@@ -7,7 +7,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - python .travis.make.py
+  - python .travis/make.py
   # - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then python .travis/prtests.py; fi'
 deploy:
     provider: pages
