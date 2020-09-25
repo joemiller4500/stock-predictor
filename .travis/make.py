@@ -24,7 +24,7 @@ def getData(abbr):
     name = str('csvs/' + abbr + '_data.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     print(lastUpdate)
-    if (lastUpdate > todayEight) == True:
+    if (lastUpdate < todayEight) == True:
         print("old")
         data = pd.read_csv(name)
         data = data.iloc[::-1]
@@ -54,7 +54,7 @@ def loadModel(training_scaled, abbr):
     name = str('csvs/' + abbr + '_data_2.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     
-    if (lastUpdate > todayEight) == True:
+    if (lastUpdate < todayEight) == True:
         data = pd.read_csv(name)
     else:
         data2, metadata=ts.get_daily(abbr,outputsize='compact')
