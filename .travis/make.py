@@ -23,11 +23,13 @@ todayEight = now.replace(hour=8, minute=0, second=0, microsecond=0)
 def getData(abbr):
     name = str('csvs/' + abbr + '_data.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
-    
+    print(lastUpdate)
     if (lastUpdate > todayEight) == True:
+        print(old)
         data = pd.read_csv(name)
         data = data.iloc[::-1]
     else:
+        print(new)
         data, metadata=ts.get_daily(abbr,outputsize='full')
         global pullCount
         pullCount += 1
