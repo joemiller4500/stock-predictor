@@ -10,7 +10,7 @@ script:
 - export ALPHA_KEY=$ALPHA_KEY
 - python .travis/make.py
 deploy:
-  provider: releases
+  provider: pages
   api_key:
     secure: jtbghduPQMWr2TvJa+h/LqcdPOWPN+J5mX/Pw05fSgIwjkV3X4/eefa7oAslUaWs5ws7efG3OIeFWa4/7JkvfQ16ulv5Q3+lyyC4Maknbsv/+NyhCbaE7y0wNduJ+v0cK1jbw2Q0djhBd7wFN7iPjqmMs5XyWiHlBevKgiXbGYyFmSGRAt2cokhV+nfHgRrIomO0hxMrWRTe++w6szAScgKIHx4e8s0y7XR3jBTwn3cX0T0t6lc76RyFDgkj77zUohnhX77IK7BcLwGZlVlOfikUQ/qsEZqUnpKveyyHIaywWiO3Pe6f/Thi4kgFWUC1JFQrZk7Sx4Gv/YwUFrKx6BjMSUjR3SYKJteUlYSd464ZhwRM68JPv0xc39CTlU8N2JG2I4eg9Wj7N411lGzYscMSTpVC8+RWUzmIH6nlI2kjng+yIf/N5/hOauv5bRRGHG4qfJICDCjgLHEGVwX4/Mg2Zib6UXlQTwqF3NpRWPaIJs04eNGBL2c9ueOWi3URemcQMZNDylaXONbz/D4JAwqUKbF4KkmA1gCCVMUAPK5pNsE2ADLWAZdQIUA/UhWj94qeNaNKyIUsyilOUivLzvIeoFVS0vR3W6nJLeDQuXexwlM45qMGy+ujHCd4pVq7fB14IWXqmvNkVDO2SpyIHMi34MMn9bTY7fi2DZI7894=
   file: "/Users/joemiller/Desktop/stock-predictor"
