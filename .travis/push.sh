@@ -8,6 +8,7 @@ commit_website_files() {
   git add . *.png
   git add . *.csv
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  git push
 }
 
 upload_files() {
@@ -17,4 +18,4 @@ upload_files() {
 
 setup_git
 commit_website_files
-upload_files
+# upload_files

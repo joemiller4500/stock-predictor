@@ -12,19 +12,23 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
-ALPHA_KEY = os.environ['ALPHA_KEY']
+# ALPHA_KEY = os.environ['ALPHA_KEY']
+ALPHA_KEY = 'B53N03ODVZVOH8R3'
 ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 
 skipTrain = True
 pullCount = 0
 now = datetime.datetime.now()
-todayEight = now.replace(hour=8, minute=0, second=0, microsecond=0)
+todayEight = now.replace(hour=5, minute=0, second=0, microsecond=0)
+
+testVar = True
 
 def getData(abbr):
     name = str('csvs/' + abbr + '_data.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     print(lastUpdate)
-    if (lastUpdate < todayEight) == True:
+    # if (lastUpdate > todayEight) == True:
+    if testVar == False:
         print("old")
         data = pd.read_csv(name)
         data = data.iloc[::-1]
@@ -37,9 +41,13 @@ def getData(abbr):
             time.sleep(55)
             pullCount = 0
         data = data.iloc[::-1]
+        # data['date']=pd.to_datetime (data ['date'])
+        # data.set_index('date', inplace=True)
+        print(data)
         data.to_csv(name)
         
-    data['date'] = data.index
+    # print(data)
+    # data['date'] = data.index
     return data, name, abbr
 
 def loadScale(name):
@@ -75,9 +83,7 @@ def predict(name, scaler, abbr, model, training_complete):
     total = pd.concat((training_complete['1. open'], testing_complete['1. open']), axis=0)
     test_inputs = total[len(total) - len(testing_complete) - 60:].values
     test_inputs = test_inputs.reshape(-1,1)
-    testii = test_inputs
     test_inputs = scaler.transform(test_inputs)
-    testy = scaler.inverse_transform(test_inputs)
     test_features = []
     
     for i in range(60, 161):
@@ -103,20 +109,18 @@ def predict(name, scaler, abbr, model, training_complete):
     # print(predictions.shape)
     # print(test_inputs.shape)
     # print(predictions[-10::])
-    
+    dates = []
+    for i in range (-100,10):
+        current = datetime.date.today() + datetime.timedelta(days=i)
+        dates.append(str(current))
+        # dates.append(current)
+        
     # Plot the results -model trained with 100 epochs 
-    plt.figure(figsize=(10,6))
-    plt.plot(testing_processed, color='blue', label='Actual Stock Price')
-    plt.plot(predictions , color='red', label='Predicted Stock Price')
-    plt.title(abbr + ' Stock Price Prediction')
-    plt.xlabel('Date')
-    plt.ylabel('Stock Price')
-    plt.legend()
-    plt.savefig(name)
-    # plt.show()
+    
 
 def runModel(abbr):
     data, name, abbr = getData(abbr)
+    # print(data)
     training_complete, training_processed, scaler, training_scaled = loadScale(name)
     model, name = loadModel(training_scaled, abbr)
     predict(name, scaler, abbr, model, training_complete)
