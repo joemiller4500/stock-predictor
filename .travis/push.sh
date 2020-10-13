@@ -1,6 +1,6 @@
 setup_git() {
   git config --global user.email "joemiller4500@gmail.com"
-  git config --global user.name "Joe-Travis"
+  git config --global user.name "joemiller4500"
 }
 
 commit_website_files() {
@@ -13,7 +13,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add https://${GITHUB_TOKEN}@github.com/joemiller4500/stock-predictor.git > /dev/null 2>&1
+  git remote add origin-pages https://${GITHUB_TOKEN}@github.com/joemiller4500/stock-predictor.git > /dev/null 2>&1
   git push --quiet origin master 
 }
 
