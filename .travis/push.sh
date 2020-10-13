@@ -1,7 +1,7 @@
 setup_git() {
   git config --global user.email "joemiller4500@gmail.com"
   git config --global user.name "joemiller4500"
-  git convig --global user.password "${GITHUB_TOKEN}"
+  # git convig --global user.password "${GITHUB_TOKEN}"
 }
 
 commit_website_files() {
