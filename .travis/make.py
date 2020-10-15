@@ -26,7 +26,7 @@ def getData(abbr):
     name = str('csvs/' + abbr + '_data.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     print(lastUpdate)
-    if (lastUpdate > todayEight) == True:
+    if (lastUpdate < todayEight) == True:
     # if testVar == False:
         print("old")
         data = pd.read_csv(name)
