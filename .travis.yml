@@ -1,17 +1,22 @@
 language: python
 python:
 - '3.6'
-before_install:
-    - chmod +x .travis/push.sh
+# before_install:
+#     - chmod +x .travis/push.sh
 install:
 - pip install -r requirements.txt
 env:
   global:
   - secure: GPzvlio6L76HvuAmV1+qe7IubOGklATKlculio+o8jYwlIb1llBw6zJTEexsy++Z0mGxBk8KO1mmN50b7h8uZyPn3inOD6ubCPvaLAJGFarC0u2/iHt0E9E5OpVShYGMIyIHif61sdtWZA0LRMiUjWuhqpSGvX78J0cu4sXomZs0Oj9PgdWEsre0lw8NggQbHIr0pzrkolEKd9En+Bo1EYjRgzhjRF1fhBV4wY/cSUaZjX2jzFpih2gQyWRdO2UHXGPuSdeDaVpTjR50LuUycsW1JzAp3p6AZnIo6A80erobz0hgBNv1ssn8Acf8zPvJa3IwfwpFvD3/k0sL6fuoYuZ5+Zt9HNUHNqoBkj65OvjNRqcnB1uAF38VcN2VUUXIAK75X59m/7TTP6Y2Iibw8tY+M5vfV18VgzUKIBbWK5xOhlCUoQkBIUhNUsoL3cAVmJmlQtnnaOyBA0xlXIpdW49vNb150Xk6KMtwa7Ey8CYgyObVnqjLNecNjbUKc260XjD8BwTA0sbuCsgOfxLZVEy4yNTBOR0OIc09W+ku3xS4Vl/b3h3rWEy2BYeLQKZ5l3pHJIOYK7vLpBoOiekeFN+aet2NeMMZgOYpq6fjMTQ6pVKffYOsgYdhAl9DHjLCZvd1ixN0/qYUoZB3GIlo5OWfQfEauu33NtikwKj2mH4=
-  global:
-  - secure: "kMZYv0SLshiqiRqow8oT4ycD+aKpqysmSvmzCygKfEptcBB0ZXuxKu8Dq1eotaE1+dvXftqLL8d9qSUsj95Lf/X2K9cv8Y2XAovxTdni+H/c0CH+9HUWwN11L8NqUgZmTLMMyzQPTcIhHUwcJ07MfKP4MBSlTMk5vBFV/a9xKLvVhaBbsulexecRhPEeFPYqDoB/NEEXb7x97EH7cKALQQDWct0uLHqgvhghZ9JXNrDUa405OT9+uBY7DyoN8paHO37rT2PAvOh2/GBFLaT/hsBJZtW3ul0GHgZnIaAd1MAJvaBUUX+/P/FNjDXqSwF5BUOey/WpUIZPn13rtbfsT9XJzqmPsTBTCioursYDyzqJDf/BE2S6WZcTSgqcJ/BCh50AfHESObuYX30KQtSIeQALH6PBOcyP0QOFNrE3jsbepPM2Bu5b2wlycjx5dpuq+shbigybTkiL+2deTnW/Wyys8F+SOKuVREkl6//NuUv4jxp/5jdZyqcY1qw5ciGxbYePNieTaaNpMZ5nVmH05ZzFVVfE+0prcSCD+oOzSDU7CsvyQQMatYBeBq+HOr/nYRciynfx4ionnhRCyHF9fh4DE6UwP3ytRmYsz5ZlCDXUC620cGN/Pk/ittwwPm9XwMenjfxH5wRHkmLDT4GbR6x348U8rinwsxDA52fJ4io="
   script:
 - export ALPHA_KEY=$ALPHA_KEY
 - python .travis/make.py
-after_success:
-    - .travis/push.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+# after_success:
+#     - .travis/push.sh
