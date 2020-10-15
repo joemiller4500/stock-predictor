@@ -57,7 +57,7 @@ def loadModel(training_scaled, abbr):
     name = str('csvs/' + abbr + '_data_2.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     
-    if (lastUpdate < todayEight) == True:
+    if (lastUpdate > todayEight) == True:
         data = pd.read_csv(name)
     else:
         data2, metadata=ts.get_daily(abbr,outputsize='compact')
