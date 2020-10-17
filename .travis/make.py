@@ -57,17 +57,26 @@ def loadModel(training_scaled, abbr):
     name = str('csvs/' + abbr + '_data_2.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
     
-    if (lastUpdate > todayEight) == True:
-        data = pd.read_csv(name)
-    else:
-        data2, metadata=ts.get_daily(abbr,outputsize='compact')
-        global pullCount
-        pullCount += 1
-        if pullCount == 5:
-            time.sleep(55)
-            pullCount = 0
-        data2 = data2.iloc[::-1]
-        data2.to_csv(name)
+    # if (lastUpdate > todayEight) == True:
+    #     data = pd.read_csv(name)
+    # else:
+    #     data2, metadata=ts.get_daily(abbr,outputsize='compact')
+    #     global pullCount
+    #     pullCount += 1
+    #     if pullCount == 5:
+    #         time.sleep(55)
+    #         pullCount = 0
+    #     data2 = data2.iloc[::-1]
+    #     data2.to_csv(name)
+
+    data2, metadata=ts.get_daily(abbr,outputsize='compact')
+    global pullCount
+    pullCount += 1
+    if pullCount == 5:
+        time.sleep(55)
+        pullCount = 0
+    data2 = data2.iloc[::-1]
+    data2.to_csv(name)
 
     return model, name
 
