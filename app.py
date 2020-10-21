@@ -22,19 +22,27 @@ todayEight = now.replace(hour=8, minute=0, second=0, microsecond=0)
 def getData(abbr):
     name = str('csvs/' + abbr + '_data.csv')
     lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
-    
-    if (lastUpdate > todayEight) == True:
-        data = pd.read_csv(name)
-        data = data.iloc[::-1]
-    else:
-        data, metadata=ts.get_daily(abbr,outputsize='full')
-        global pullCount
-        pullCount += 1
-        if pullCount == 5:
-            time.sleep(55)
-            pullCount = 0
-        data = data.iloc[::-1]
-        data.to_csv(name)
+    data, metadata=ts.get_daily(abbr,outputsize='full')
+    global pullCount
+    pullCount += 1
+    if pullCount == 5:
+        time.sleep(55)
+        pullCount = 0
+    data = data.iloc[::-1]
+    data.to_csv(name)
+
+    # if (lastUpdate > todayEight) == True:
+    #     data = pd.read_csv(name)
+    #     data = data.iloc[::-1]
+    # else:
+    #     data, metadata=ts.get_daily(abbr,outputsize='full')
+    #     global pullCount
+    #     pullCount += 1
+    #     if pullCount == 5:
+    #         time.sleep(55)
+    #         pullCount = 0
+    #     data = data.iloc[::-1]
+    #     data.to_csv(name)
         
     data['date'] = data.index
     return data, name, abbr
