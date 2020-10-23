@@ -84,23 +84,20 @@
         </div>
       </nav>
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <div class="container-fluid">
-            <h1 class="mt-4" style="font-size:100px;">LSTM Stock Predictor</h1>
-            <p style="font-size:20px;">Welcome to my stock prediction page. On this site you will find stock data for 15 top
-               companies on the New York Stock Exchange alongside machine learning aided predictions
-                for their stock prices in the near future. Learning was done with a Long Short Term Memory (LSTM) model.</p>
-                <p style="font-size:20px;"> The Compare tab will show the companies'
-               projections side by side, while a more in depth look at each company can be found
-                under Companies.</p>
-                <p style="font-size:20px;">My info and links to more of my work can be found on the Bio page</p>
-                <p style="font-size:20px;">Note: Compare and Bio pages coming.</p>
-                <p style="font-size:20px;">Thanks so much for visiting!</p>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div id="multiline">
+            <!-- Multiline comparison chart goes here -->
           </div>
         </div>
-        <div class="col-md-2"></div>
-      </div>  
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <img class="resize" src="table.png" alt="Projection Table">
+        </div>
+        <div class="col-md-1"></div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -114,8 +111,8 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript" src="multiline.js"></script>
-  <script type="text/javascript" src="gauge.js"></script>
-  <script type="text/javascript" src="sline.js"></script>
+  <!-- <script type="text/javascript" src="gauge.js"></script> -->
+  <!-- <script type="text/javascript" src="sline.js"></script> -->
 
   <!-- Menu Toggle Script -->
   <script>
