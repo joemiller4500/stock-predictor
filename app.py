@@ -85,7 +85,7 @@ def loadModel(training_scaled, abbr):
 
 def predict(name, scaler, abbr, model, training_complete, data2):
     testing_complete = pd.read_csv(name)
-    name = str('static/assets/img/' + abbr + '_predictions.png')
+    # name = str('static/assets/img/' + abbr + '_predictions.png')
     testing_processed = testing_complete.iloc[:, 1:2].values
     total = pd.concat((training_complete['1. open'], testing_complete['1. open']), axis=0)
     test_inputs = total[len(total) - len(testing_complete) - 60:].values
