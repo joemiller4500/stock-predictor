@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import time, os.path, datetime
 from flask import Flask, render_template
 from alpha_vantage.timeseries import TimeSeries
-ts = TimeSeries(key='B53N03ODVZVOH8R3',output_format='pandas')
+ALPHA_KEY = os.environ['ALPHA_KEY']
+ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
@@ -56,6 +57,8 @@ def loadScale(name):
     return training_complete, training_processed, scaler, training_scaled
 
 def loadModel(training_scaled, abbr):
+    uppr = abbr.upper()
+    modelName = str('models/' + uppr + "Model.h5"
     model = load_model(modelName)
     name = str('comps/' + abbr + '/data_2.csv')
     # lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
