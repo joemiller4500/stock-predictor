@@ -50,10 +50,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../compare/">Compare</a>
+              <a class="nav-link" href="compare/">Compare</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,12 +95,58 @@
                projections side by side, while a more in depth look at each company can be found
                 under Companies.</p>
                 <p style="font-size:20px;">My info and links to more of my work can be found on the Bio page</p>
-                <p style="font-size:20px;">Note: Compare and Bio pages coming.</p>
+                <p style="font-size:20px;">Note: Bio page coming.</p>
                 <p style="font-size:20px;">Thanks so much for visiting!</p>
           </div>
         </div>
         <div class="col-md-2"></div>
       </div>  
+      <hr>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="container-fluid">
+            <p style="font-size:20px;">
+              The first start of this code was a project done in a group for class in collaboration with
+               <a href="https://www.linkedin.com/in/kelby-wilson/">Kelby Wilson</a>,
+                <a href="https://www.linkedin.com/in/criselda-d-b45623105/"> Criselda Dimacali</a>,
+                 and <a href="https://www.linkedin.com/in/nehemiah-dang/"> Nehemiah Dang</a>.
+                At the conclusion of our collaborative effort, we had a Heroku hosted HTML page with 
+                predictions for 10 days, as is done here, but it was done without the capability
+               to automatically updated, and thus only gave 10 days from when the site was posted.
+                Since then, I've hosted the project on <a href="https://travis-ci.com">Travis-CI</a>
+               in order to update the site daily via virtual machine. I completely redesigned the HTML using a 
+               basic starter template from <a href="https://startbootstrap.com/">Start Bootstrap LLC</a>. 
+              I restructured our python code in order to give comparrisons for all companies, and generally 
+              implemented more rigorous data cleaning to account for weekends and edge cases, and to make graphing 
+              cleaner. I scrapped the old plots and switched to interactive JavaScript libraries - <a href="https://d3js.org">D3</a>
+             and <a href="https://plotly.com">Plotly</a>. Python libraries used include <a href="https://tensorflow.org">TensorFlow</a>
+              and <a href="https://scikit-learn.org/stable/">scikit-learn</a> for machine learning, 
+              <a href="https://numpy.org">NumPy</a> and <a href="https://pandas.pydata.org/">Pandas</a> for data processing. 
+              Daily API calls are run using <a href="https://www.alphavantage.co/">Alpha Vantage</a> in order to update data.</p>
+              <p style="font-size:20px">
+                The models for these companies are built using 100 epochs of learning on an LSTM model. Historical data is taken from 
+                late 1999 until the present, unless that stock came onto the public market subsequently. Daily predictions are made
+                using the models trained on historical data, and are fed the last 100 most recent opening prices for each company.
+                These 100 data points are used to predict one day into the future, and then the 99 most recent days and the one predicted
+                day are fed to the model again to predict another day into the future. This is repeated until we have a prediction for 
+                each market day for 2 weeks.
+              </p>
+              <p style="font-size:20px">
+                Because of the nature of the stock market, days further into the future are obviously less likely to be accurate. These 
+                models know as much as I could teach them, but without the knowledge of a trader and the ability to verify future predictions,
+                these predictions get less founded. Please use predictions given on this site with caution and thoughtfulness. 
+              </p>
+              <p style="font-size:20px">
+                Big thanks to Thushan Ganegadara, whose <a href="https://www.datacamp.com/community/tutorials/lstm-python-stock-market">article</a>
+                 on LSTM modeling of the stock market provided the initial training I needed to start this project, with the help of my former
+                 group mates. The code in this article provided the backbone of the modeling done for this site. Thank you also to 
+                 <a href="https://bl.ocks.org/larsenmtl">@larsenmtl</a> whose <a href="https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91">code</a>
+                  was a great start for the interactive D3 line graphs found on this site.
+              </p>
+            </div>
+          </div>
+      </div>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

@@ -26,7 +26,7 @@ d3.csv("all_comps.csv").then(function(data) {
     var line = d3.line()
       .curve(d3.curveLinear)
       .x(function(d,i) {
-        return x(+i);
+        return x(+i+1);
       })
       .y(function(d) {
         return y(+d.price);
@@ -60,7 +60,7 @@ d3.csv("all_comps.csv").then(function(data) {
     });
     
 
-    x.domain([0,10]);
+    x.domain([1,11]);
 
     y.domain([
       d3.min(prices, function(c) {
@@ -131,21 +131,21 @@ d3.csv("all_comps.csv").then(function(data) {
         return color(d.name);
       });
 
-    type.append("text")
-      .datum(function(d) {
-        return {
-          name: d.name,
-          value: d.values[d.values.length - 1]
-        };
-      })
-      .attr("transform", function(d) {
-        return "translate(" + x(d.value.day) + "," + y(d.value.price) + ")";
-      })
-      .attr("x", 3)
-      .attr("dy", ".35em")
-      .text(function(d) {
-        return d.name;
-      });
+    // type.append("text")
+    //   .datum(function(d) {
+    //     return {
+    //       name: d.name,
+    //       value: d.values[d.values.length - 1]
+    //     };
+    //   })
+    //   .attr("transform", function(d) {
+    //     return "translate(" + x(d.value.day) + "," + y(d.value.price) + ")";
+    //   })
+    //   .attr("x", 3)
+    //   .attr("dy", ".35em")
+    //   .text(function(d) {
+    //     return d.name;
+    //   });
 
     var mouseG = svg.append("g")
       .attr("class", "mouse-over-effects");

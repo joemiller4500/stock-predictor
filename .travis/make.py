@@ -5,9 +5,8 @@ import matplotlib.pyplot as plt
 import time, os.path, datetime
 from flask import Flask, render_template
 from alpha_vantage.timeseries import TimeSeries
-# ALPHA_KEY = os.environ['ALPHA_KEY']
-# ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
-ts = TimeSeries(key='B53N03ODVZVOH8R3',output_format='pandas')
+ALPHA_KEY = os.environ['ALPHA_KEY']
+ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
