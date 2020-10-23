@@ -58,7 +58,7 @@ def loadScale(name):
 
 def loadModel(training_scaled, abbr):
     uppr = abbr.upper()
-    modelName = str('models/' + uppr + "Model.h5"
+    modelName = str('models/' + uppr + "Model.h5")
     model = load_model(modelName)
     name = str('comps/' + abbr + '/data_2.csv')
     # lastUpdate = datetime.datetime.fromtimestamp(time.mktime(time.gmtime(os.path.getmtime(name))))
