@@ -1,6 +1,6 @@
-d3.csv("prediction1.csv").then(function(data) {
-    console.log(data)
-        var parseDate = d3.timeParse("%Y-%m-%d");
+d3.csv("all_comps.csv").then(function(data) {
+        // var parseDate = d3.timeParse("%Y-%m-%d");
+        console.log(data)
 
     var margin = {
         top: 20,
@@ -11,7 +11,7 @@ d3.csv("prediction1.csv").then(function(data) {
       width = 900 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-    var x = d3.scaleTime()
+    var x = d3.scaleLinear()
       .range([0, width]);
 
     var y = d3.scaleLinear()
@@ -25,11 +25,11 @@ d3.csv("prediction1.csv").then(function(data) {
 
     var line = d3.line()
       .curve(d3.curveLinear)
-      .x(function(d) {
-        return x(d.date);
+      .x(function(d,i) {
+        return x(+i);
       })
       .y(function(d) {
-        return y(d.price);
+        return y(+d.price);
       });
 
     var svg = d3.select("#multiline").append("svg")
@@ -42,35 +42,36 @@ d3.csv("prediction1.csv").then(function(data) {
       return key !== "date";
     }));
 
-    data.forEach(function(d) {
-      d.date = parseDate(d.date);
-    });
+    // data.forEach(function(d) {
+    //   d.date = parseDate(d.date);
+    // });
 
     var prices = color.domain().map(function(name) {
       return {
         name: name,
-        values: data.map(function(d) {
+        values: data.map(function(d,i) {
+          // console.log(typeof d[0][0])
+      // console.log(+d[name])
           return {
-            date: d.date,
             price: +d[name]
           };
         })
       };
     });
+    
 
-    x.domain(d3.extent(data, function(d) {
-      return d.date;
-    }));
+    x.domain([0,10]);
 
     y.domain([
       d3.min(prices, function(c) {
         return d3.min(c.values, function(v) {
-          return v.price;
+          return +v.price;
         });
       }),
       d3.max(prices, function(c) {
         return d3.max(c.values, function(v) {
-          return v.price;
+          // console.log(v);
+          return +v.price;
         });
       })
     ]);
@@ -138,7 +139,7 @@ d3.csv("prediction1.csv").then(function(data) {
         };
       })
       .attr("transform", function(d) {
-        return "translate(" + x(d.value.date) + "," + y(d.value.price) + ")";
+        return "translate(" + x(d.value.day) + "," + y(d.value.price) + ")";
       })
       .attr("x", 3)
       .attr("dy", ".35em")

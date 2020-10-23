@@ -182,7 +182,7 @@ def predict(name, scaler, abbr, model, training_complete, data2):
     plt.savefig(table_name,
             bbox_inches='tight',
             dpi=150,
-            pad_inches=0.1
+            pad_inches=0.3
             )
     
     plt.box(on=None)
