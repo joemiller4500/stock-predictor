@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link href="css/multiline.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <!-- <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Start Bootstrap </div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      </div>
+    </div> -->
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../compare/">Compare</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Companies
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../MSFT/">MSFT</a>
+                <a class="dropdown-item" href="../AAPL">AAPL</a>
+                <a class="dropdown-item" href="../AMZN">AMZN</a>
+                <a class="dropdown-item" href="../FB">FB</a>
+                <a class="dropdown-item" href="../BRK-B">BRK-B</a>
+                <a class="dropdown-item" href="../GOOGL">GOOGL</a>
+                <a class="dropdown-item" href="../JNJ">JNJ</a>
+                <a class="dropdown-item" href="../JPM">JPM</a>
+                <a class="dropdown-item" href="../V">V</a>
+                <a class="dropdown-item" href="../PG">PG</a>
+                <a class="dropdown-item" href="../MA">MA</a>
+                <a class="dropdown-item" href="../INTC">INTC</a>
+                <a class="dropdown-item" href="../UNH">UNH</a>
+                <a class="dropdown-item" href="../BAC">BAC</a>
+                <a class="dropdown-item" href="../T">T</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../bio/">Bio</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Facebook - FB</h1>
+        <p>Facebook stock statistics and projections</p>
+        <!-- <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div id="multiline">
+                    <!-- multiline comparison chart goes here -->
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="gauge">
+                    <!-- guage chart goes here -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <p>This is a comparrison of the last 100 market days of data with my model's predictions of those last 100 days. The last date given represents the last market day.</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <p>The gauge shows the last market day's opening price for FB, and the change from the previous day's opening price. The range of the gauge represents the low to high of the last 100 opening prices.</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="sline">
+                    <!-- single line graph of 10 day prediction goes here -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="resize" src="table.png" alt="Projection Table">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <p>Above is my prediction for the next 10 market days. Note that predictions are not made for weekends, but are made for other market holidays.</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <p>This table shows the precise prediction for each of the next 10 market days, and the profit one would expect per stock if sold that many market days into the future.</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="multiline.js"></script>
+  <script type="text/javascript" src="gauge.js"></script>
+  <script type="text/javascript" src="sline.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
