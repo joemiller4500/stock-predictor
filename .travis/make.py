@@ -161,7 +161,7 @@ def predict(name, scaler, abbr, model, training_complete, data2):
 
     table_name = str('comps/' + abbr + '/table.png')
 
-    future_preds['margin'] = (future_preds['prediction'] -  last_open); 
+    future_preds['margin'] = (future_preds['Prediction'] -  last_open); 
     future_preds = future_preds.values
     columns = ('Open','Margin')
     rows = ['%d day(s)' % x for x in range(1,11)]
