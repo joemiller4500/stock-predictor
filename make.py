@@ -6,8 +6,9 @@ import time, os.path, datetime
 from flask import Flask, render_template
 from alpha_vantage.timeseries import TimeSeries
 # ALPHA_KEY = os.environ['ALPHA_KEY']
-# ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
-ts = TimeSeries(key='B53N03ODVZVOH8R3',output_format='pandas')
+
+ALPHA_KEY = 'B53N03ODVZVOH8R3'
+ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import LSTM
@@ -174,7 +175,7 @@ def predict(name, scaler, abbr, model, training_complete, data2):
 
     table_name = str('comps/' + abbr + '/table.png')
     # print(future_preds)
-    future_preds['margin'] = (future_preds['Prediction'] -  last_open); 
+    future_preds['margin'] = (future_preds['Prediction'] -  future_preds['Prediction'][0]); 
     comp_df[abbr] = future_preds['margin']
     future_preds_new = future_preds.values
     columns = ('Open','Margin')
