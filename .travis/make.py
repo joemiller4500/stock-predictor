@@ -17,13 +17,13 @@ from pandas.plotting import table
 ALPHA_KEY = os.environ['ALPHA_KEY']
 ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 
-# # Travis-CI cron-job automatically runs at some time around or soon after 9PM
-# # and cannot be changed. This delays update to the site by extending the time
-# # of the job.
-# print('start')
-# for i in range(0,52):
-#     time.sleep(540)
-#     print('waiting')
+# Travis-CI cron-job automatically runs at some time around or soon after 9PM
+# and cannot be changed. This delays update to the site by extending the time
+# of the job.
+print('start')
+for i in range(0,52):
+    time.sleep(540)
+    print('waiting')
 
 # DataFrame made to collect predictions from all companies to compare
 comp_df = pd.DataFrame()
