@@ -21,7 +21,7 @@ ts = TimeSeries(key=ALPHA_KEY,output_format='pandas')
 # and cannot be changed. This delays update to the site by extending the time
 # of the job.
 for i in range(0,52):
-    time.sleep(28800)
+    time.sleep(540)
     print('waiting')
 
 # DataFrame made to collect predictions from all companies to compare
