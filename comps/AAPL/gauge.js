@@ -11,9 +11,9 @@ data = d3.csv("prediction1.csv").then(function(data){
     min = +value.Open;
     for (i=1; i<data.length; i++){
         value = val(data,i);
-        console.log(value);
+        // console.log(value);
         value = +value.Open
-        console.log(value);
+        // console.log(value);
         if (value > max){
             max = value;
         };
